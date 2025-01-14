@@ -52,16 +52,13 @@
         git
         git-filter-repo
         gh
-        #git-lfs
         htop
         zsh
         oh-my-zsh
-        # powerline-fonts # Make sure to run ~/Library/Fonts/update.sh
         tree
         gnupg
         openssl
         plantuml
-        # jre
         ripgrep
         jq
         direnv
@@ -76,6 +73,7 @@
         ormolu
         tldr
         nodejs_22
+        kitty
 
         pkgs.haskellPackages.ghc
       ];
