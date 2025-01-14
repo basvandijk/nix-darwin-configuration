@@ -61,6 +61,20 @@
               k = "kubectl";
               h = "hledger";
             };
+            envExtra = ''
+              . "$HOME/.cargo/env"
+              . "$HOME/Library/Application Support/org.dfinity.dfx/env"
+            '';
+            initExtra = ''
+              # The commands below set some key bindings. To figure out the code for a particular
+              # key binding, use 'cat':
+              # % cat
+              # ^A^C
+
+              # Ensure "del" key deletes the next char
+              # (needed if terminal doesn't handle it directly)
+              bindkey "^[[3~" delete-char
+            '';
           };
 
           programs.emacs = {
