@@ -9,15 +9,24 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    mac-app-util.url = "github:hraban/mac-app-util";
+    mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }:
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, mac-app-util }:
   let
     configuration = { pkgs, ... }: {
-      imports = [ home-manager.darwinModules.home-manager ];
+      imports = [
+        home-manager.darwinModules.home-manager
+        mac-app-util.darwinModules.default
+      ];
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
+        sharedModules = [
+          mac-app-util.homeManagerModules.default
+        ];
         users."bas" = {
           home.stateVersion = "24.11";
           programs.home-manager.enable = true;
