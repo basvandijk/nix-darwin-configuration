@@ -79,6 +79,8 @@
 
           programs.emacs = {
             enable = true;
+            # See: https://github.com/NixOS/nixpkgs/issues/395169
+            package = pkgs.emacs.override { withNativeCompilation = false; };
             extraPackages = epkgs: with epkgs; [
               bazel
               magit
@@ -143,6 +145,7 @@
         tldr
         nodejs_22
         pkgs.haskellPackages.ghc
+        rectangle
       ];
 
       fonts.packages = [
