@@ -112,8 +112,12 @@
               elixir-mode
               yasnippet
               hledger-mode
+              tuareg
             ];
           };
+          home.packages = [
+            pkgs.cachix
+          ];
         };
       };
 
@@ -153,7 +157,10 @@
         pkgs.nerd-fonts._0xproto
       ];
 
-      nix.settings.experimental-features = "nix-command flakes";
+      nix.settings = {
+        experimental-features = "nix-command flakes";
+        trusted-users = [ "root" "bas" ];
+      };
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
