@@ -65,7 +65,7 @@
               . "$HOME/.cargo/env"
               . "$HOME/Library/Application Support/org.dfinity.dfx/env"
             '';
-            initExtra = ''
+            initContent = ''
               # The commands below set some key bindings. To figure out the code for a particular
               # key binding, use 'cat':
               # % cat
@@ -113,8 +113,25 @@
               tuareg
             ];
           };
-          home.packages = [
-            pkgs.cachix
+          home.packages = with pkgs; [
+            bazelisk
+            cabal-install
+            cabal2nix
+            cachix
+            colordiff
+            gh
+            git-filter-repo
+            gnupg
+            graphviz
+            haskellPackages.ghc
+            jq
+            krew
+            nodejs_22
+            openssl
+            ormolu
+            ripgrep
+            tldr
+            yq
           ];
         };
       };
@@ -127,27 +144,9 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages = with pkgs; [
         coreutils
-        git-filter-repo
-        gh
         htop
-        tree
-        gnupg
-        openssl
-        plantuml
-        ripgrep
-        jq
-        graphviz
-        cabal2nix
-        cabal-install
-        colordiff
-        yq
-        krew
-        bazelisk
-        ormolu
-        tldr
-        nodejs_22
-        pkgs.haskellPackages.ghc
         rectangle
+        tree
       ];
 
       fonts.packages = [
