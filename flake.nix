@@ -80,37 +80,38 @@
           programs.emacs = {
             enable = true;
             extraPackages = epkgs: with epkgs; [
+              adoc-mode
               bazel
-              magit
-              forge
-              flycheck
               company
+              direnv
+              elixir-mode
+              exec-path-from-shell
+              flycheck
+              forge
               github-review
+              go-mode
+              graphviz-dot-mode
               haskell-mode
-              zenburn-theme
-              solarized-theme
-              yaml-mode
+              hledger-mode
+              lsp-mode
+              lsp-ui
+              magit
               markdown-mode
               nix-mode
               nix-sandbox
               ormolu
-              graphviz-dot-mode
-              direnv
-              projectile
-              terraform-mode
-              go-mode
-              rust-mode
-              lsp-mode
-              lsp-ui
-              adoc-mode
               plantuml-mode
-              use-package
+              projectile
               rg
+              rust-mode
+              solarized-theme
+              terraform-mode
               tt-mode
-              elixir-mode
-              yasnippet
-              hledger-mode
               tuareg
+              use-package
+              yaml-mode
+              yasnippet
+              zenburn-theme
             ];
           };
           home.packages = with pkgs; [
