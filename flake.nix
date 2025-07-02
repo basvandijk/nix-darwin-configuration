@@ -116,6 +116,7 @@
           };
           home.packages = with pkgs; [
             bazelisk
+            bazel_7
             cabal-install
             cabal2nix
             cachix
@@ -148,6 +149,7 @@
         htop
         rectangle
         tree
+        wireguard-tools
       ];
 
       fonts.packages = [
