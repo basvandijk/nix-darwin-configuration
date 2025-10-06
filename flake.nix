@@ -64,6 +64,7 @@
             envExtra = ''
               . "$HOME/.cargo/env"
               . "$HOME/Library/Application Support/org.dfinity.dfx/env"
+              export PATH="$HOME/.npm-global/bin:$PATH"
             '';
             initContent = ''
               # The commands below set some key bindings. To figure out the code for a particular
@@ -134,6 +135,9 @@
             ripgrep
             tldr
             yq
+            saml2aws
+            okta-aws-cli
+            awscli
           ];
         };
       };
@@ -159,7 +163,7 @@
 
       nix.settings = {
         experimental-features = "nix-command flakes";
-        trusted-users = [ "root" "bas" ];
+        trusted-users = [ "bas" ];
       };
 
       # Set Git commit hash for darwin-version.
