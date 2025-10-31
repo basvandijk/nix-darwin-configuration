@@ -28,7 +28,7 @@
           mac-app-util.homeManagerModules.default
         ];
         users."bas" = {
-          home.stateVersion = "24.11";
+          home.stateVersion = "25.05";
           programs.home-manager.enable = true;
 
           programs.direnv = {
@@ -38,8 +38,10 @@
 
           programs.git = {
             enable = true;
-            userEmail = "bas@van.dijk.ch";
-            userName = "Bas van Dijk";
+            settings = {
+              user.email = "bas@van.dijk.ch";
+              user.name = "Bas van Dijk";
+            };
           };
 
           programs.kitty = {
@@ -117,7 +119,7 @@
           };
           home.packages = with pkgs; [
             bazelisk
-            bazel_7
+            bazel_8
             cabal-install
             cabal2nix
             cachix
