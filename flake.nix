@@ -18,7 +18,7 @@
     mac-app-util.url = "github:hraban/mac-app-util";
 
     devbox-src = {
-      url = "https://github.com/namespacelabs/devbox/releases/download/v0.0.170/devbox_0.0.170_darwin_arm64.tar.gz";
+      url = "https://github.com/namespacelabs/devbox/releases/download/v0.0.172/devbox_0.0.172_darwin_arm64.tar.gz";
       flake = false;
     };
   };

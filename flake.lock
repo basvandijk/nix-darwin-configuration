@@ -24,14 +24,14 @@
     "devbox-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1782316340,
-        "narHash": "sha256-Fak/Tvak38+3+8GKDogwXdnWISXxD1KX3ipKyUti11s=",
+        "lastModified": 1782485542,
+        "narHash": "sha256-zK/KIweALokdZ6sFjL8MIFN9322J5m4hC8QvLFP6zdk=",
         "type": "tarball",
-        "url": "https://github.com/namespacelabs/devbox/releases/download/v0.0.170/devbox_0.0.170_darwin_arm64.tar.gz"
+        "url": "https://github.com/namespacelabs/devbox/releases/download/v0.0.172/devbox_0.0.172_darwin_arm64.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/namespacelabs/devbox/releases/download/v0.0.170/devbox_0.0.170_darwin_arm64.tar.gz"
+        "url": "https://github.com/namespacelabs/devbox/releases/download/v0.0.172/devbox_0.0.172_darwin_arm64.tar.gz"
       }
     },
     "flake-compat": {
