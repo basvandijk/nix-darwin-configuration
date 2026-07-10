@@ -21,9 +21,14 @@
       url = "https://github.com/namespacelabs/devbox/releases/download/v0.0.172/devbox_0.0.172_darwin_arm64.tar.gz";
       flake = false;
     };
+
+    quill-bin = {
+      url = "https://github.com/dfinity/quill/releases/download/v0.5.4/quill-macos-arm64";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, mac-app-util, devbox-src }:
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, mac-app-util, devbox-src, quill-bin }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -31,6 +36,10 @@
         let
           devbox = pkgs.runCommand "devbox" { } ''
             install -D ${devbox-src}/devbox $out/bin/devbox
+          '';
+
+          quill = pkgs.runCommand "quill" { } ''
+            install -D ${quill-bin} $out/bin/quill
           '';
         in
         {
@@ -158,6 +167,7 @@
                 okta-aws-cli
                 awscli
                 devbox
+                quill
               ];
             };
           };

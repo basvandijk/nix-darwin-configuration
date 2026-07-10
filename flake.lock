@@ -247,13 +247,26 @@
         "type": "indirect"
       }
     },
+    "quill-bin": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-rkuAmHseiehWbMSoaKm95O0xsibtbyI7a0hVyDKQH6o=",
+        "type": "file",
+        "url": "https://github.com/dfinity/quill/releases/download/v0.5.4/quill-macos-arm64"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/dfinity/quill/releases/download/v0.5.4/quill-macos-arm64"
+      }
+    },
     "root": {
       "inputs": {
         "devbox-src": "devbox-src",
         "home-manager": "home-manager",
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_5",
+        "quill-bin": "quill-bin"
       }
     },
     "systems": {
