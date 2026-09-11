@@ -90,8 +90,12 @@
                   h = "hledger";
                 };
                 envExtra = ''
-                  . "$HOME/.cargo/env"
-                  . "$HOME/Library/Application Support/org.dfinity.dfx/env"
+                  # These are installed by rustup and dfx, which aren't managed by
+                  # nix, so only source them when they're actually present.
+                  [[ -r "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+                  dfx_env="$HOME/Library/Application Support/org.dfinity.dfx/env"
+                  [[ -r $dfx_env ]] && . "$dfx_env"
+                  unset dfx_env
                   export PATH="$HOME/.npm-global/bin:$PATH"
                 '';
                 initContent = ''
@@ -209,8 +213,13 @@
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#simple
-      darwinConfigurations."Bas-Dijk-LXQ66Y3561" = nix-darwin.lib.darwinSystem {
-        modules = [ configuration ];
+      darwinConfigurations = {
+        "Bas-Dijk-LXQ66Y3561" = nix-darwin.lib.darwinSystem {
+          modules = [ configuration ];
+        };
+        "bassbox" = nix-darwin.lib.darwinSystem {
+          modules = [ configuration ];
+        };
       };
       formatter.${system} = pkgs.writeShellScriptBin "formatter" ''
         if [[ $# = 0 ]]; then set -- .; fi
