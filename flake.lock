@@ -24,14 +24,14 @@
     "devbox-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1782485542,
-        "narHash": "sha256-zK/KIweALokdZ6sFjL8MIFN9322J5m4hC8QvLFP6zdk=",
+        "lastModified": 1790070808,
+        "narHash": "sha256-SgF6Hj+EG7lrVJ5ZmNQK+6OyeH+x5lD9+iRLTl4NKDM=",
         "type": "tarball",
-        "url": "https://github.com/namespacelabs/devbox/releases/download/v0.0.172/devbox_0.0.172_darwin_arm64.tar.gz"
+        "url": "https://github.com/namespacelabs/devbox/releases/download/v0.0.192/devbox_0.0.192_darwin_arm64.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/namespacelabs/devbox/releases/download/v0.0.172/devbox_0.0.172_darwin_arm64.tar.gz"
+        "url": "https://github.com/namespacelabs/devbox/releases/download/v0.0.192/devbox_0.0.192_darwin_arm64.tar.gz"
       }
     },
     "flake-compat": {
@@ -96,11 +96,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789267039,
-        "narHash": "sha256-LWiBv9yAYFi2LPbUhDGHPGKYskJQjj2fw12OlyO1uQo=",
+        "lastModified": 1790215976,
+        "narHash": "sha256-VkR1rMGyjU9jtw8ISFx5uqR9e+LEaOlhHwrseFkiIVk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ec172013fa62135f58fb58dd17ae9651e8f39727",
+        "rev": "a6631107a83ceab5872f298a2ea710859c80c4cb",
         "type": "github"
       },
       "original": {
@@ -234,11 +234,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1789155820,
-        "narHash": "sha256-YFLVdq6kzCr2lg/x2d4tucHaut356OuBf+m7rJx+tyU=",
-        "rev": "8029b6c369415ee1ef02a86f352806348f104db9",
+        "lastModified": 1790117938,
+        "narHash": "sha256-QsdEVdXEJtq379J1ANBQZcW6sUB9EnzFkmpLAlkEcVo=",
+        "rev": "bd495b825e5c4365131f9b744cce923d42c06158",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixpkgs/26.05-darwin/nixpkgs-darwin-26.05pre1013904.8029b6c36941/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixpkgs/26.05-darwin/nixpkgs-darwin-26.05pre1014773.bd495b825e5c/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
