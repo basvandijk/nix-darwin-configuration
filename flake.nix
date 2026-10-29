@@ -10,13 +10,6 @@
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # NOTE: mac-app-util intentionally does NOT follow our nixpkgs.
-    # SBCL 2.6.x in nixpkgs 26.05 breaks named-readtables/cl-interpol, which
-    # mac-app-util depends on. Using its own pinned nixpkgs (with a working
-    # SBCL) is the maintainer-recommended workaround.
-    # See: https://github.com/hraban/mac-app-util/issues/42
-    mac-app-util.url = "github:hraban/mac-app-util";
-
     devbox-src = {
       url = "https://github.com/namespacelabs/devbox/releases/download/v0.0.192/devbox_0.0.192_darwin_arm64.tar.gz";
       flake = false;
@@ -28,7 +21,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, mac-app-util, devbox-src, quill-bin }:
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, devbox-src, quill-bin }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -45,16 +38,17 @@
         {
           imports = [
             home-manager.darwinModules.home-manager
-            mac-app-util.darwinModules.default
           ];
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            sharedModules = [
-              mac-app-util.homeManagerModules.default
-            ];
             users."bas" = {
               home.stateVersion = "25.05";
+              # Copy (rather than symlink) apps into ~/Applications/Home Manager Apps
+              # so Spotlight can find them. This replaces mac-app-util, whose SBCL
+              # (< 2.6.6, as in nixpkgs 26.05) can't start on macOS 27.
+              targets.darwin.copyApps.enable = true;
+              targets.darwin.linkApps.enable = false;
               programs.home-manager.enable = true;
 
               programs.direnv = {
